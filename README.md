@@ -53,7 +53,7 @@ Things you may want to cover:
 |category_id   |integer   |null: false                   |
 |condition_id  |integer   |null: false                   |
 |deliveryfee_id|integer   |null: false                   |
-|area_id       |integer   |null: false                   |
+|prefectures_id|integer   |null: false                   |
 |days_id       |integer   |null: false                   |
 |price         |integer   |null: false                   |
 |user          |references|null: false, foreign_key: true|
@@ -66,19 +66,20 @@ Things you may want to cover:
 - belongs_to_active_hash :category
 - belongs_to_active_hash :condition
 - belongs_to_active_hash :deliveryfee
-- belongs_to_active_hash :area
+- belongs_to_active_hash :prefectures
 - belongs_to_active_hash :days
 
 ## addressesテーブル
 
-| Column       | Type     | Options    |
-|--------------|----------|------------|
-|postal_code   |string    |null: false |
-|prefectures_id|integer   |null: false |
-|city          |string    |null: false |
-|address       |string    |null: false |
-|building      |string    |            |
-|phonenumber   |string    |null: false |
+| Column       | Type     | Options                      |
+|--------------|----------|------------------------------|
+|postal_code   |string    |null: false                   |
+|prefectures_id|integer   |null: false                   |
+|city          |string    |null: false                   |
+|address       |string    |null: false                   |
+|building      |string    |                              |
+|phonenumber   |string    |null: false                   |
+|order         |references|null: false, foreign_key: true|
 
 ### Association
 
