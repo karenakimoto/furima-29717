@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :items
+
   with_options presence: true do
     validates :nickname
     validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
@@ -13,5 +15,8 @@ class User < ApplicationRecord
     validates :familyname_kana, format: { with: /\A[ァ-ヶー－]+\z/ }
     validates :firstname_kana, format: { with: /\A[ァ-ヶー－]+\z/ }
     validates :birthday
+
   end
 end
+
+
