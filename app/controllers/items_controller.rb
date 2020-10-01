@@ -31,7 +31,12 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    render :show unless user_signed_in? && current_user.id == @item.user_id
+    if @item.user == current_user
+      user_signed_in? && current_user.id == @item.user_id
+      render "edit"
+    else
+      redirect_to root_path
+    end
   end
 
   def update
